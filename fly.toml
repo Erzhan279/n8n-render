@@ -1,15 +1,11 @@
-app = "n8n-app"
+app = "n8n-render-gipv3a"
 kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
-
-[env]
-# Құпиялар fly secrets арқылы беріледі
+kill_timeout = "5s"
 
 [[services]]
-  internal_port = 5678
-  protocol = "tcp"
+internal_port = 5_678
+protocol = "tcp"
 
   [[services.ports]]
-    port = 80
-    handlers = ["http"]
+  handlers = [ "http" ]
+  port = 80
