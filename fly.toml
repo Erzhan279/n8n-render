@@ -1,0 +1,11 @@
+app = "n8n-render-gipv3a"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+
+[[services]]
+internal_port = 5_678
+protocol = "tcp"
+
+  [[services.ports]]
+  handlers = [ "http" ]
+  port = 80
