@@ -1,0 +1,15 @@
+app = "n8n-app"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+# Құпиялар fly secrets арқылы беріледі
+
+[[services]]
+  internal_port = 5678
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
