@@ -1,7 +1,18 @@
 FROM n8nio/n8n:latest
 
-ENV N8N_PORT=5678
-ENV NODE_ENV=production
-ENV GENERIC_TIMEZONE="Europe/Moscow"
+# Render өз портын ENV арқылы береді, сондықтан N8N_PORT Render портын қолданады
+ENV N8N_PORT=$PORT
+ENV N8N_HOST=0.0.0.0
+ENV N8N_PROTOCOL=http
 
-EXPOSE 5678
+# Таймзона
+ENV GENERIC_TIMEZONE="Asia/Almaty"
+
+# Деректерді сақтау
+WORKDIR /data
+VOLUME /home/node/.n8n
+
+EXPOSE 8080
+
+# Render PORT айнымалысына автоматты түрде қояды
+CMD ["n8n", "start"]
